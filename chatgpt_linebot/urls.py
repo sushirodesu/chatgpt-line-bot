@@ -70,8 +70,7 @@ def agent(query: str) -> tuple[str]:
     prompt = agent_template + query
     message = [{'role': 'user', 'content': prompt}]
 
-    tool, input = chat(message, config.GPT_METHOD, config.GPT_API_KEY).split(', ')
-
+    tool, input = chat(message, config.GPT_METHOD, config.GPT_API_KEY)
     print(f"""
     Agent
     =========================================
