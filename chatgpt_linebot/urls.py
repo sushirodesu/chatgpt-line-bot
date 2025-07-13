@@ -103,7 +103,8 @@ def send_image_reply(reply_token, img_url: str) -> None:
         original_content_url=img_url,
         preview_image_url=img_url
     )
-    line_bot_api.reply_message(reply_token, messages=image_message)
+    line_bot_api.reply_message(reply_token, messages=image_message)  
+    line_bot_api.reply_message(reply_token, messages=image_message)    line_bot_api.reply_message(reply_token, messages=image_message)
 
 def send_text_reply(reply_token, text: str) -> None:
     """Sends a text message to the user."""
