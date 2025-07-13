@@ -1,10 +1,9 @@
 from fastapi import FastAPI
 import os
-import uvicorn
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 
-from urls import line_app  # ← ここを修正！
+from chatgpt_linebot.urls import line_app  # ← フルパスで修正
 
 app = FastAPI()
 
@@ -23,7 +22,7 @@ async def home() -> JSONResponse:
     message = {"status": "success", "message": "Hello World!"}
     return JSONResponse(content=message)
 
-# 以下はRenderでは不要なので削除・コメントアウト
+# 以下はRenderでは不要なのでコメントアウト
 # if __name__ == "__main__":
 #     port = int(os.getenv("PORT", 10000))
 #     uvicorn.run("main:app", host="0.0.0.0", port=port)
