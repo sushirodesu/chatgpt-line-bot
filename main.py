@@ -1,7 +1,6 @@
-import os
-
-import uvicorn
 from fastapi import FastAPI
+import os
+import uvicorn
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 
@@ -21,10 +20,10 @@ async def home() -> JSONResponse:
     Returns:
         JSONResponse: Hello World!
     """
-    message = {"stauts": "success", "message": "Hello World!"}
+    message = {"status": "success", "message": "Hello World!"}
     return JSONResponse(content=message)
 
+
 if __name__ == "__main__":
-    import os
     port = int(os.getenv("PORT", 10000))
     uvicorn.run("main:app", host="0.0.0.0", port=port)
