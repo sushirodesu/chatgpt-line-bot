@@ -1,9 +1,15 @@
-from fastapi import FastAPI
+import sys
 import os
+
+# Renderが正しくchatgpt_linebotパッケージを認識できるようにする
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from fastapi import FastAPI
+import uvicorn
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 
-from chatgpt_linebot.urls import line_app  # ← フルパスで修正
+from chatgpt_linebot.urls import line_app
 
 app = FastAPI()
 
