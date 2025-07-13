@@ -87,7 +87,7 @@ def agent(query: str) -> tuple[str]:
     """Fetches image URL from different search sources."""
     img_crawler = ImageCrawler(nums=5)
     img_url = img_crawler.get_url(query)
-    if not img_url:
+    return img_url    if not img_url:
         img_serp = ImageCrawler(engine='serpapi', nums=5, api_key=config.SERPAPI_API_KEY)
         img_url = img_serp.get_url(query)
         print('Used Serpapi search image instead of icrawler.')
