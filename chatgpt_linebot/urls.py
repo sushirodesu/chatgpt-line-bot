@@ -78,7 +78,6 @@ def agent(query: str) -> tuple[str]:
     Tool: {tool}
     Input: {input}
     """)
-
     return tool, input
 
 
