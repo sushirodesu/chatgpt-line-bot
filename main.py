@@ -4,7 +4,7 @@ import uvicorn
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 
-from chatgpt_linebot.urls import line_app
+from urls import line_app  # ← ここを修正！
 
 app = FastAPI()
 
