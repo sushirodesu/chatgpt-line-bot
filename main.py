@@ -23,6 +23,7 @@ async def home() -> JSONResponse:
     message = {"status": "success", "message": "Hello World!"}
     return JSONResponse(content=message)
 
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 10000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
+# 以下はRenderでは不要なので削除・コメントアウト
+# if __name__ == "__main__":
+#     port = int(os.getenv("PORT", 10000))
+#     uvicorn.run("main:app", host="0.0.0.0", port=port)
