@@ -83,24 +83,27 @@ def agent(query: str) -> tuple[str]:
 
     return response
     
-    def search_image_url(query: str) -> str:
+   def search_image_url(query: str) -> str:
     """Fetches image URL from different search sources."""
     img_crawler = ImageCrawler(nums=5)
     img_url = img_crawler.get_url(query)
-    return img_url    if not img_url:
-        img_serp = ImageCrawler(engine='serpapi', nums=5, api_key=config.SERPAPI_API_KEY)
+    if not img_url:
+        img_serp = ImageCrawler(engine="serpapi", nums=5, api_key=config.SERPAPI_API_KEY)
         img_url = img_serp.get_url(query)
-        print('Used Serpapi search image instead of icrawler.')
+        print("Used Serpapi search image instead of icrawler.")
     return img_url
-
 
 def send_image_reply(reply_token, img_url: str) -> None:
     """Sends an image message to the user."""
     if not img_url:
         send_text_reply(reply_token, 'Cannot get image.')
-    image_message = ImageSendMessage(original_content_url=img_url, preview_image_url=img_url)
-    line_bot_api.reply_message(reply_token, messages=image_message)
+        return
 
+    image_message = ImageSendMessage(
+        original_content_url=img_url,
+        preview_image_url=img_url
+    )
+    line_bot_api.reply_message(reply_token, messages=image_message)
 
 def send_text_reply(reply_token, text: str) -> None:
     """Sends a text message to the user."""
