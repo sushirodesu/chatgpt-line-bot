@@ -70,14 +70,17 @@ def agent(query: str) -> tuple[str]:
     prompt = agent_template + query
     message = [{'role': 'user', 'content': prompt}]
 
-    esponse = chat(message, config.GPT_METHOD, config.GPT_API_KEY)    print(f"""
-    Agent
-    =========================================
-    Query: {query}
-    Tool: {tool}
-    return response    """)
-    
+   response = chat(message, config.GPT_METHOD, config.GPT_API_KEY)
 
+print(f"""
+Agent
+==============================
+Query: {query}
+Tool: {tool}
+==============================
+""")
+
+return response    
 
 def search_image_url(query: str) -> str:
     """Fetches image URL from different search sources."""
