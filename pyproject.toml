@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "chatgpt-line-bot"
+name = "chatgpt-linebot"
 version = "0.1.0"
 description = ""
 authors = ["hs_junxiang <jimmy871117@gmail.com>"]
