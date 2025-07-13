@@ -2,3 +2,4 @@ fastapi
 openai
 line-bot-sdk
 serpapi
+gunicorn
