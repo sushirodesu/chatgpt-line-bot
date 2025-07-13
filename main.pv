@@ -1,0 +1,15 @@
+from fastapi import FastAPI, Request, Header
+from fastapi.responses import JSONResponse
+from chatgpt_linebot.openai import create_line_reply
+
+app = FastAPI()
+
+@app.get("/")
+def root():
+    return {"message": "Hello! This is your LINE bot API."}
+
+@app.post("/callback")
+async def callback(request: Request, x_line_signature: str = Header(None)):
+    body = await request.body()
+    response = create_line_reply(body, x_line_signature)
+    return response
